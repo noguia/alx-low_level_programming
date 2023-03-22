@@ -1,25 +1,49 @@
-#include <stdio.h>
-
+#include "main.h"
 /**
- * main - program that computes and prints the sum of all
- * the multiples of 3 or 5 below 1024
- *
- * Return: int.
- */
-
-int main(void)
+* print_times_table - a function that prints the n times table
+* @n: variable input
+* Return: void return nothing
+*/
+void print_times_table(int n)
 {
-	int multi = 0;
-	int res = 0;
+	int i, j, res;
 
-	while (multi < 1024)
+	if (!(n > 15 || n < 0))
 	{
-		if (multi % 3 == 0 || multi % 5 == 0)
+		for (i = 0; i <= n; i++)
 		{
-			res += multi;
+			for (j = 0; j <= n; j++)
+			{
+				res = (i * j);
+				if (j != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+				if (res < 10 && j != 0)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 10 && res < 100)
+				{
+					_putchar(' ');
+					_putchar((res / 10) + '0');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 100 && j != 0)
+				{
+					_putchar((res / 100) + '0');
+					_putchar((res / 10) % 10 + '0');
+					_putchar((res % 10) + '0');
+				}
+				else
+				{
+					_putchar((res % 10) + '0');
+				}
+			}
+		_putchar('\n');
 		}
-		multi += 1;
 	}
-	printf("%d\n", res);
-	return (0);
 }
