@@ -1,0 +1,1 @@
+why pointers to functions?
